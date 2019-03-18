@@ -26,18 +26,17 @@ function buildCharts(sample) {
     console.log(result);
 
 
-    //bubble plot
+    // build bubble plot
     var bubble_trace = [{
       x: result.otu_ids,
       y: result.sample_values,
       text: result.otu_labels,
       mode: 'markers',
       marker: {
-        color:result.otu_ids,
-        size: result.sample_values
+        size: result.sample_values,
+        color:result.otu_ids
       }
     }];
-
     var bubble_layout = {
       showlegend: false,
       height: 650,
@@ -45,7 +44,7 @@ function buildCharts(sample) {
       title: 'Bubble Chart For Each Sample',
     };
 
-
+    //Build pie chart for top 10 
     var values = [];
     var ids = [];
     var labels = [];
@@ -81,9 +80,6 @@ function buildCharts(sample) {
       width: 520,
     };
 
-
-
-    
     var pie_plot_area = document.getElementById('pie');
     var bubble_plot_area = document.getElementById('bubble');
 
