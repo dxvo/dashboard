@@ -25,6 +25,27 @@ function buildCharts(sample) {
   d3.json(url).then(function(result) {
     console.log(result);
 
+
+    //bubble plot
+    var bubble_trace = [{
+      x: result.otu_ids,
+      y: result.sample_values,
+      text: result.otu_labels,
+      mode: 'markers',
+      marker: {
+        color:result.otu_ids,
+        size: result.sample_values
+      }
+    }];
+
+    var bubble_layout = {
+      showlegend: false,
+      height: 650,
+      width: 1200,
+      title: 'Bubble Chart For Each Sample',
+    };
+
+
     var values = [];
     var ids = [];
     var labels = [];
@@ -60,25 +81,6 @@ function buildCharts(sample) {
       width: 520,
     };
 
-
-    //bubble plot
-    var bubble_trace = [{
-      x: result.otu_ids,
-      y: result.sample_values,
-      text: result.otu_labels,
-      mode: 'markers',
-      marker: {
-        color:result.otu_ids,
-        size: result.sample_values
-      }
-    }];
-
-    var bubble_layout = {
-      showlegend: false,
-      height: 650,
-      width: 1200,
-      title: 'Bubble Chart For Each Sample',
-    };
 
 
     
